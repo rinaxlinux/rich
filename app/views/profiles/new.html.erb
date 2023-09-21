@@ -1,0 +1,37 @@
+<h1>(自分の題名)</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @profile do |f| %>
+
+  <div class="dete">
+    <%= f.date_field :birthday %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Profile_name %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Profile_blood %>
+    <%= f.text_field :blood, :size => 30 %>
+  </div>
+
+ <div class="field">
+    <%= f.label :Profile_hobby %>
+    <%= f.text_field :hobby, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Profile_character %>
+    <%= f.text_field :character, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る" %>

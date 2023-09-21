@@ -1,0 +1,18 @@
+<%= form_for @profile do |f| %>
+    <%= f.date_field :birthday %>
+
+    <%= f.label :Profile_name %>
+    <%= f.text_field :name, :size => 30 %>
+
+    <%= f.label :Profile_blood %>
+    <%= f.text_field :blood, :size => 30 %>
+
+    <%= f.label :Profile_hobby %>
+    <%= f.text_field :hobby, :size => 30 %>
+
+    <%= f.label :Profile_character %>
+    <%= f.text_field :character, :size => 30 %>
+
+    
+    <%= f.submit "編集する" %>
+  <% end %>

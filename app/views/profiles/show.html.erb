@@ -1,0 +1,31 @@
+<h1>プロフィールカード</h1>
+<h3>Tweet詳細</h3>
+<div class="profile">
+  <p><%= @profile.birthday %></p>
+  <p><%= @profile.name %></p>
+  <p><%= @profile.blood %></p>
+  <p><%= @profile.hobby %></p>
+  <p><%= @profile.character %></p>
+
+  <% if user_signed_in? %>
+      <% if current_user.already_liked?(@profile) %>
+        <%= button_to profile_like_path(@profile), method: :delete do %>
+          <i class="fas fa-heart"></i><%= @profile.likes.count %>
+        <% end %>
+        <% else %>
+         <%= button_to profile_likes_path(@profile), method: :post do %>
+          <i class="far fa-heart"></i><%= @profile.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <i class="far fa-heart"></i><%= @profile.likes.count %>
+    <% end %>
+ <%= link_to "編集する", edit_profile_path(@profile.id) %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @profile.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<%= link_to "一覧に戻る", profiles_path %>
