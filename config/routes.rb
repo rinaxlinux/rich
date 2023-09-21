@@ -8,14 +8,6 @@ Rails.application.routes.draw do
   end
   root 'profiles#index'
 
-  get 'profiles/:id' => 'profiles#show',as: 'tweet'
-
-  patch 'profiles/:id' => 'profiles#update'
-
-  delete 'profiles/:id' => 'profiles#destroy'
-  
-  get 'profiles/:id/edit' => 'profiles#edit', as:'edit_tweet'
-
   get "top" => "profiles#top"
 
 end
